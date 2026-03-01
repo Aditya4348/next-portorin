@@ -1,0 +1,171 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "work": "Work",
+    "blog": "Blog",
+    "lab": "Lab",
+    "contact": "Contact"
+  },
+  "home": {
+    "hi": "Hi, I'm",
+    "words": [
+      "I Build Systems.",
+      "I Think in Architecture.",
+      "I Solve Real Problems."
+    ],
+    "description": "A visionary thinker and system architect in the making. I don't just write code; I design digital ecosystems that bridge the gap between complex problems and elegant solutions.",
+    "viewWork": "View My Work",
+    "talk": "Let's Talk",
+    "systemOnline": "System: Online",
+    "globalImpact": "Global Impact",
+    "whyTitle": "Why I Build",
+    "whyQuote": "\"Building isn't just about assembly; it's about understanding the soul of a system. I see the world as a series of interconnected nodes, and my mission is to optimize the pathways that connect them. Every line of code is a brick in a digital universe designed to serve humanity.\"",
+    "traits": [
+      {
+        "title": "System Thinker",
+        "desc": "I analyze the macro to optimize the micro. Architecture is my language."
+      },
+      {
+        "title": "Builder Mentality",
+        "desc": "Execution is everything. I turn abstract concepts into tangible reality."
+      },
+      {
+        "title": "Vision & Leadership",
+        "desc": "Organizing teams and ideas to achieve what seems impossible."
+      }
+    ]
+  },
+  "about": {
+    "title": "The Journey.",
+    "intro": "I don't see problems as obstacles; I see them as systems waiting to be optimized. My journey hasn't been a straight line—it's been a recursive loop of learning, building, and refining.",
+    "timeline": [
+      {
+        "year": "2020",
+        "title": "The Spark",
+        "desc": "Started as a curious student, dismantling software to understand the 'how'."
+      },
+      {
+        "year": "2022",
+        "title": "The Organizer",
+        "desc": "Led tech communities and organized hackathons, learning the power of collective execution."
+      },
+      {
+        "year": "2024",
+        "title": "The Developer",
+        "desc": "Mastered the full-stack, building products that solved real-world friction."
+      },
+      {
+        "year": "2026",
+        "title": "System Builder",
+        "desc": "Now architecting complex digital ecosystems with a focus on scalability and human-centric design."
+      }
+    ],
+    "leadership": {
+      "title": "Leadership Mindset",
+      "desc": "Leadership isn't about being in charge. It's about creating a system where everyone can perform at their peak. I focus on removing bottlenecks—both technical and human."
+    },
+    "learning": {
+      "title": "Continuous Learning",
+      "desc": "I approach learning like a compiler. I ingest raw information, parse it into mental models, and execute it through real-world projects. If I haven't built it, I don't know it."
+    },
+    "skillsTitle": "My Tools."
+  },
+  "work": {
+    "title": "What I’ve Built.",
+    "subtitle": "A collection of systems designed to solve real-world friction.",
+    "complexity": "Complexity",
+    "problem": "The Problem",
+    "solution": "The System Solution",
+    "stack": "Tech Stack",
+    "lesson": "Key Lesson Learned",
+    "demo": "Live Demo",
+    "source": "Source Code",
+    "back": "Back to Work",
+    "expTitle": "Leadership & Execution.",
+    "expSubtitle": "My professional journey is defined by the impact I create and the systems I leave behind.",
+    "orgTitle": "Organizations & Leadership",
+    "orgSubtitle": "Where I've contributed my vision and energy beyond code.",
+    "orgBack": "Back to Organizations",
+    "orgGallery": "Moments & Impact",
+    "orgRole": "Role",
+    "orgImpact": "Impact & Contribution",
+    "stats": [
+      {
+        "label": "Systems Built",
+        "value": 12
+      },
+      {
+        "label": "Projects Shipped",
+        "value": 24
+      },
+      {
+        "label": "People Impacted",
+        "value": "5K+"
+      }
+    ]
+  },
+  "blog": {
+    "title": "What I Think About.",
+    "subtitle": "Reflections on technology, systems, and the journey of building a meaningful digital future.",
+    "readTime": "min",
+    "back": "Back to Blog",
+    "categories": [
+      "All",
+      "Philosophy",
+      "UX Design",
+      "Tech",
+      "Engineering"
+    ]
+  },
+  "lab": {
+    "title": "Gen Z Lab.",
+    "subtitle": "An experimental playground where I test ideas and build mini-tools for the future.",
+    "career": {
+      "title": "Career Path Generator",
+      "desc": "Not sure where you're headed? Let the lab decide your future role.",
+      "btn": "Generate Path",
+      "paths": [
+        "AI System Architect",
+        "Ethical Hacker for Good",
+        "Digital Nomad Product Lead",
+        "Web3 Infrastructure Builder",
+        "Human-Centric UX Researcher"
+      ]
+    },
+    "hustle": {
+      "title": "Side Hustle Idea Generator",
+      "desc": "Need a weekend project? Here's a high-potential idea for you.",
+      "btn": "Generate Idea",
+      "ideas": [
+        "AI-Powered Resume Optimizer",
+        "Micro-SaaS for Local Farmers",
+        "Curated Tech Stack Newsletter",
+        "Custom Mechanical Keyboard Shop",
+        "Digital Garden as a Service"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Let’s Build.",
+    "subtitle": "If you're building something meaningful, or just want to talk about systems and the future, my digital door is always open.",
+    "email": "Email Me",
+    "discord": "Discord",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "placeholderName": "John Doe",
+      "placeholderEmail": "john@example.com",
+      "placeholderMsg": "Tell me about your vision...",
+      "btn": "Send Message",
+      "subjects": [
+        "General Inquiry",
+        "Project Collaboration",
+        "System Consultation",
+        "Just Saying Hi"
+      ]
+    }
+  }
+}
