@@ -1,19 +1,28 @@
-import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Moon, Sun, LayoutGrid, Languages } from 'lucide-react';
-import { useState } from 'react';
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-import { useLanguage } from '../context/LanguageContext';
+'use client';
+
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { Menu, X, Moon, Sun, LayoutGrid, Languages } from 'lucide-react'
+import { useState } from 'react'
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+import { useLanguage } from '../context/LanguageContext'
 
 function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 
-export const Navbar = ({ isDark, toggleDark }: { isDark: boolean; toggleDark: () => void }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-  const { language, setLanguage, t } = useLanguage();
+export const Navbar = ({
+  isDark,
+  toggleDark,
+}: {
+  isDark: boolean
+  toggleDark: () => void
+}) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
+  const { language, setLanguage, t } = useLanguage()
 
   const navLinks = [
     { name: t.nav.home, path: '/' },
@@ -22,16 +31,18 @@ export const Navbar = ({ isDark, toggleDark }: { isDark: boolean; toggleDark: ()
     { name: t.nav.blog, path: '/blog' },
     { name: t.nav.lab, path: '/lab' },
     { name: t.nav.contact, path: '/contact' },
-  ];
+  ]
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 px-6 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between glass px-6 py-3 rounded-2xl">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 bg-purple-accent rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
             <LayoutGrid className="text-white w-6 h-6" />
           </div>
-          <span className="font-display font-bold text-xl tracking-tight">ADIT.</span>
+          <span className="font-display font-bold text-xl tracking-tight">
+            ADIT.
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -39,24 +50,29 @@ export const Navbar = ({ isDark, toggleDark }: { isDark: boolean; toggleDark: ()
           {navLinks.map((link) => (
             <Link
               key={link.path}
-              to={link.path}
+              href={link.path}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-purple-accent",
-                location.pathname === link.path ? "text-purple-accent" : "text-slate-400"
+                'text-sm font-medium transition-colors hover:text-purple-accent',
+                pathname === link.path
+                  ? 'text-purple-accent'
+                  : 'text-slate-400'
               )}
             >
               {link.name}
             </Link>
           ))}
-          
+
           <div className="flex items-center gap-2 border-l border-white/10 pl-6">
             <button
-              onClick={() => setLanguage(language === 'en' ? 'id' : 'en')}
+              onClick={() =>
+                setLanguage(language === 'en' ? 'id' : 'en')
+              }
               className="p-2 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-2 text-xs font-bold uppercase"
             >
               <Languages size={18} />
               {language}
             </button>
+
             <button
               onClick={toggleDark}
               className="p-2 rounded-lg hover:bg-white/10 transition-colors"
@@ -68,12 +84,19 @@ export const Navbar = ({ isDark, toggleDark }: { isDark: boolean; toggleDark: ()
 
         {/* Mobile Toggle */}
         <div className="md:hidden flex items-center gap-4">
-          <button onClick={() => setLanguage(language === 'en' ? 'id' : 'en')} className="text-xs font-bold uppercase">
+          <button
+            onClick={() =>
+              setLanguage(language === 'en' ? 'id' : 'en')
+            }
+            className="text-xs font-bold uppercase"
+          >
             {language}
           </button>
+
           <button onClick={toggleDark}>
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
+
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -90,11 +113,13 @@ export const Navbar = ({ isDark, toggleDark }: { isDark: boolean; toggleDark: ()
           {navLinks.map((link) => (
             <Link
               key={link.path}
-              to={link.path}
+              href={link.path}
               onClick={() => setIsOpen(false)}
               className={cn(
-                "text-lg font-medium",
-                location.pathname === link.path ? "text-purple-accent" : "text-slate-400"
+                'text-lg font-medium',
+                pathname === link.path
+                  ? 'text-purple-accent'
+                  : 'text-slate-400'
               )}
             >
               {link.name}
@@ -103,5 +128,5 @@ export const Navbar = ({ isDark, toggleDark }: { isDark: boolean; toggleDark: ()
         </motion.div>
       )}
     </nav>
-  );
-};
+  )
+}
