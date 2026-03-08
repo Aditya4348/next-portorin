@@ -2,36 +2,39 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { Menu, X, Moon, Sun, LayoutGrid, Languages } from 'lucide-react'
 import { useState } from 'react'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { useLanguage } from '../context/LanguageContext'
+import { useDarkMode } from '@/hooks/useUI';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter, usePathname } from '@/i18n/navigation';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const Navbar = ({
-  isDark,
-  toggleDark,
-}: {
-  isDark: boolean
-  toggleDark: () => void
-}) => {
+export const Navbar = () => {
+  const { isDark, toggle } = useDarkMode();
   const [isOpen, setIsOpen] = useState(false)
-  const pathname = usePathname()
-  const { language, setLanguage, t } = useLanguage()
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+   const t = useTranslations("nav");
+
+   const toggleLanguage = () => {
+    const nextLocale = locale === "en" ? "id" : "en";
+    router.replace(pathname, { locale: nextLocale });
+  };
 
   const navLinks = [
-    { name: t.nav.home, path: '/' },
-    { name: t.nav.about, path: '/about' },
-    { name: t.nav.work, path: '/work' },
-    { name: t.nav.blog, path: '/blog' },
-    { name: t.nav.lab, path: '/lab' },
-    { name: t.nav.contact, path: '/contact' },
-  ]
+    { name: t("home"), path: "/" },
+    { name: t("about"), path: "/about" },
+    { name: t("work"), path: "/work" },
+    { name: t("blog"), path: "/blog" },
+    { name: t("lab"), path: "/lab" },
+    { name: t("contact"), path: "/contact" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 px-6 py-4">
@@ -64,20 +67,11 @@ export const Navbar = ({
 
           <div className="flex items-center gap-2 border-l border-white/10 pl-6">
             <button
-              onClick={() =>
-                setLanguage(language === 'en' ? 'id' : 'en')
-              }
-              className="p-2 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-2 text-xs font-bold uppercase"
+              onClick={toggleLanguage}
+              className="cursor-pointer p-2 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-2 text-xs font-bold uppercase"
             >
               <Languages size={18} />
-              {language}
-            </button>
-
-            <button
-              onClick={toggleDark}
-              className="p-2 rounded-lg hover:bg-white/10 transition-colors"
-            >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+               {locale === "en" ? "Indonesia" : "English"}
             </button>
           </div>
         </div>
@@ -85,16 +79,10 @@ export const Navbar = ({
         {/* Mobile Toggle */}
         <div className="md:hidden flex items-center gap-4">
           <button
-            onClick={() =>
-              setLanguage(language === 'en' ? 'id' : 'en')
-            }
-            className="text-xs font-bold uppercase"
+            onClick={toggleLanguage}
+            className="text-xs font-bold uppercase cursor-pointer"
           >
-            {language}
-          </button>
-
-          <button onClick={toggleDark}>
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            {locale === "en" ? "Indonesia" : "English"}
           </button>
 
           <button onClick={() => setIsOpen(!isOpen)}>

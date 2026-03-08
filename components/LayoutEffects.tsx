@@ -1,3 +1,5 @@
+"use client"
+
 import { ReactNode } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { useMousePosition } from '../hooks/useUI';
