@@ -5,6 +5,7 @@ import { ArrowRight, Cpu, Globe } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { Typewriter } from "react-simple-typewriter";
+import "@/app/globals.css";
 
 
 const HeroSection = () => {
@@ -58,7 +59,7 @@ const HeroSection = () => {
                 className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-accent/30 to-navy-900/80" />
+              <div className="absolute inset-0 bg-linear-to-br from-purple-accent/30 to-navy-900/80" />
               
               {/* Abstract shapes overlay */}
               <div className="absolute inset-0 flex items-center justify-center">

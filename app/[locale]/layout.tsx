@@ -1,4 +1,3 @@
-
 import { CursorGlow, ScrollProgress } from "@/components/LayoutEffects";
 import { Navbar } from "@/components/Navbar";
 import { AnimatePresence } from "framer-motion";
@@ -7,7 +6,7 @@ import { setRequestLocale } from "next-intl/server";
 
 export default async function LocaleLayout({
   children,
-  params
+  params,
 }: {
   children: React.ReactNode;
   params: Promise<{ locale: "en" | "id" }>;
@@ -16,25 +15,22 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
 
-  const messages =
-    (await import(`@/messages/${locale}.json`)).default;
+  const messages = (await import(`@/messages/${locale}.json`)).default;
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <div className="relative min-h-screen selection:bg-purple-accent selection:text-white">
-          <div className="fixed inset-0 bg-navy-900 z-[-2]" />
-          <div className="fixed inset-0 bg-grid z-[-1]" />
-          
-          <ScrollProgress />
-          <CursorGlow />
-          <Navbar />
-          
-          <main>
-            <AnimatePresence mode="wait">
-              {children}
-            </AnimatePresence>
-          </main>
-        </div>
+        <div className="fixed inset-0 bg-navy-900 z-[-2]" />
+        <div className="fixed inset-0 bg-grid z-[-1]" />
+
+        <ScrollProgress />
+        <CursorGlow />
+        <Navbar />
+
+        <main>
+          <AnimatePresence mode="wait">{children}</AnimatePresence>
+        </main>
+      </div>
     </NextIntlClientProvider>
   );
 }

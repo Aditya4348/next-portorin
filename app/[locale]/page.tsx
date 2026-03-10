@@ -4,11 +4,13 @@ import { ArrowRight, Cpu, Globe, Zap } from 'lucide-react';
 import Link from "next/link";
 import { MotionDiv } from "@/helper/Motion/MotionDiv";
 import HeroSection from "@/components/Pages/HeroSection";
+import "../globals.css";
+
+
+
 
 export default async function Hero() {
   const t = await getTranslations("home");
-
-  const words = t.raw('words') as string[]
 
   return (
     <div className="min-h-screen pt-32 px-6">
