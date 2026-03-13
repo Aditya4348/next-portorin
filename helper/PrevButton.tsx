@@ -5,9 +5,9 @@ import { ArrowLeft } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 
-export default function PrevButton({ url }: { url: string }) {
+export default function PrevButton({ url, page }: { url: string, page: string }) {
   const router = useRouter();
-  const t = useTranslations('work');
+  const t = useTranslations(page);
 
   return (
     <MotionButton

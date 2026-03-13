@@ -36,7 +36,7 @@ export default async function OrgDetail({
   return (
     <div className="min-h-screen pt-32 px-6 pb-20">
       <div className="max-w-7xl mx-auto">
-        <PrevButton url={"/work"} />
+        <PrevButton url={"/work"} page={"work"} />
 
         <div className="grid lg:grid-cols-3 gap-16">
           <MotionDiv
