@@ -1,6 +1,7 @@
 export const projectsData = [
   {
     id: "nexus-os",
+    slug: "nexus-os",
     title: "Nexus OS",
     problem: "Fragmented productivity tools causing cognitive overload.",
     solution: "A unified system architecture for personal knowledge management.",
@@ -12,6 +13,7 @@ export const projectsData = [
   },
   {
     id: "ecostream",
+    slug: "ecostream",
     title: "EcoStream",
     problem: "Real-time environmental data was inaccessible to urban planners.",
     solution: "Distributed sensor network with a real-time visualization dashboard.",
@@ -23,6 +25,7 @@ export const projectsData = [
   },
   {
     id: "vault-protocol",
+    slug: "vault-protocol",
     title: "Vault Protocol",
     problem: "Centralized storage solutions lack true user sovereignty.",
     solution: "Decentralized encryption layer for cross-chain data storage.",

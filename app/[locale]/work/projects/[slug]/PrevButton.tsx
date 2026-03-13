@@ -1,0 +1,26 @@
+"use client";
+
+import { MotionButton } from "@/helper/Motion/MotionDiv";
+import { ArrowLeft } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+
+export default function PrevButton() {
+  const router = useRouter();
+  const t = useTranslations('work');
+
+  return (
+    <MotionButton
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      onClick={() => router.push("/work")}
+      className="flex items-center gap-2 text-slate-400 hover:text-purple-accent mb-12 transition-colors group"
+    >
+      <ArrowLeft
+        size={20}
+        className="group-hover:-translate-x-1 transition-transform"
+      />
+      {t("back")}
+    </MotionButton>
+  );
+}

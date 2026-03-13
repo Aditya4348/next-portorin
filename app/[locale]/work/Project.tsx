@@ -15,7 +15,7 @@ export const ProjectGrid = () => {
           {projectsData.map((project) => (
             <MotionDiv
               key={project.id}
-              onClick={() => router.push(`/projects/${project.id}`)}
+              onClick={() => router.push(`/work/projects/${project.slug}`)}
               className="group cursor-pointer glass rounded-[40px] overflow-hidden flex flex-col"
             >
               <div className="relative h-72 overflow-hidden">
