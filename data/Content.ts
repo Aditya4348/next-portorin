@@ -40,6 +40,7 @@ export const projectsData = [
 export const blogPostsData = [
   {
     id: "architecture-of-thought",
+    slug: "architecture-of-thought",
     title: "The Architecture of Thought",
     excerpt: "How mapping mental models can lead to better system design in software engineering.",
     category: "Philosophy",
@@ -56,6 +57,7 @@ export const blogPostsData = [
   },
   {
     id: "scaling-with-empathy",
+    slug: "scaling-with-empathy",
     title: "Scaling with Empathy",
     excerpt: "Why human-centric design is the most important metric for any scalable system.",
     category: "UX Design",
@@ -72,6 +74,7 @@ export const blogPostsData = [
   },
   {
     id: "future-of-web3",
+    slug: "future-of-web3",
     title: "The Future of Web3 Systems",
     excerpt: "Exploring the intersection of decentralized protocols and real-world utility.",
     category: "Tech",
@@ -91,6 +94,7 @@ export const blogPostsData = [
 export const organizationsData = [
   {
     id: "global-tech",
+    slug: "global-tech",
     name: "Global Tech Community",
     role: "Regional Lead",
     period: "2023 - Present",
@@ -106,6 +110,7 @@ export const organizationsData = [
   },
   {
     id: "open-source",
+    slug: "open-source",
     name: "Open Source Collective",
     role: "Core Contributor",
     period: "2022 - 2023",

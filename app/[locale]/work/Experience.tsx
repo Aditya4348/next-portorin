@@ -93,7 +93,7 @@ export const ExperienceSection = () => {
           {organizationsData.map((org, i) => (
             <div
               key={org.id}
-              onClick={() => router.push(`/organizations/${org.id}`)}
+              onClick={() => router.push(`/work/organizations/${org.slug}`)}
               className="glass p-8 rounded-3xl hover:bg-white/10 transition-colors cursor-pointer group"
             >
               <div className="flex items-center gap-4 mb-4">

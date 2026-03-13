@@ -3,7 +3,7 @@ import { projectsData } from '@/data/Content';
 import Link from 'next/link';
 import { MotionButton, MotionDiv } from '@/helper/Motion/MotionDiv';
 import { getTranslations } from "next-intl/server";
-import PrevButton from "./PrevButton";
+import PrevButton from "../../../../../helper/PrevButton";
 
 export default async function ProjectDetail({
   params,
@@ -12,8 +12,6 @@ export default async function ProjectDetail({
 }) {
   const { slug } = await params;
   
-  console.log('testing', slug)
-
   const t  = await getTranslations('work');
   const project = projectsData.find(p => p.slug === slug);
 
@@ -31,7 +29,7 @@ export default async function ProjectDetail({
   return (
     <div className="min-h-screen pt-32 px-6 pb-20">
       <div className="max-w-7xl mx-auto">
-        <PrevButton />
+        <PrevButton url={'/work'} />
 
         <div className="grid lg:grid-cols-2 gap-16">
           <MotionDiv
