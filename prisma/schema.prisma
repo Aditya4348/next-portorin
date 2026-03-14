@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+
+model Project {
+  id        Int     @id @default(autoincrement())
+  slug     String  @unique
+  title    String 
+  published Boolean @default(false)
+  Problem String
+  Solution String
+  createdAt DateTime @default(now())
+  stack String[]
+  complexity String
+  lesson String
+  imageUrl String
+  fullDescription String
+}
+
+model BLog {
+  id        Int     @id @default(autoincrement())
+  slug     String  @unique
+  title    String
+  excerpt String
+  category String[]
+  readingTime String 
+  published Boolean @default(false)
+  createdAt DateTime @default(now())
+  imageUrl String
+  content String
+}
+
+model Organization {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  name      String
+  role      String
+  period    String
+  desc      String
+  fullDesc  String
+  impact    String?
+
+  galleries Gallery[]
+
+  createdAt DateTime @default(now())
+}
+
+model Gallery {
+  id             String       @id @default(uuid())
+  imageUrl       String
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  createdAt      DateTime @default(now())
+}
+
