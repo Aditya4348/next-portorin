@@ -3,7 +3,7 @@ import { projectsData } from '@/data/Content';
 import Link from 'next/link';
 import { MotionButton, MotionDiv } from '@/helper/Motion/MotionDiv';
 import { getTranslations } from "next-intl/server";
-import PrevButton from "../../../../../helper/PrevButton";
+import PrevButton from "../../../../../../helper/PrevButton";
 
 export default async function ProjectDetail({
   params,

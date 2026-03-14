@@ -4,7 +4,7 @@ import { ArrowRight, Cpu, Globe, Zap } from 'lucide-react';
 import Link from "next/link";
 import { MotionDiv } from "@/helper/Motion/MotionDiv";
 import HeroSection from "@/components/Pages/HeroSection";
-import "../globals.css";
+import "../../globals.css";
 
 
 
