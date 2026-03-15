@@ -5,6 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 const intlMiddleware = createMiddleware(routing);
 
 export default async function proxy(request: NextRequest) {
+  // Ambil pathname atau URL dari request
   const pathName = request.nextUrl.pathname;
   const locale = pathName.split("/")[1]; // ambil locale
 
@@ -23,7 +24,7 @@ export default async function proxy(request: NextRequest) {
       );
     }
   }
-  
+
   // For all other paths, use the intl middleware
   return intlMiddleware(request);
 }

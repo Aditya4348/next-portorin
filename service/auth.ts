@@ -13,3 +13,5 @@ export const getUser = async () => {
     const response = await axios.get('/api/auth/user')
     return response.data.data
 }
+
+

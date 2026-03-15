@@ -70,7 +70,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
         error.response?.data?.message || "Terjadi kesalahan pada server";
 
       toast.error(errorMessage);
-      router.push("/login");
     },
   });
 
@@ -103,7 +102,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     },
     onSuccess: () => {
       toast.success("Logout berhasil!");
-      window.location.reload();
+      router.push('/')
     },
     onError: (error: any) => {
       toast.error(
