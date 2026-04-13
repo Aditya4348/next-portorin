@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
 }
 
 
@@ -28,25 +28,40 @@ model Project {
   Problem String
   Solution String
   createdAt DateTime @default(now())
-  stack String[]
+  stack Stack[]
   complexity String
   lesson String
   imageUrl String
   fullDescription String
 }
 
-model BLog {
+model Stack {
   id        Int     @id @default(autoincrement())
-  slug     String  @unique
-  title    String
-  excerpt String
-  category String[]
-  readingTime String 
-  published Boolean @default(false)
-  createdAt DateTime @default(now())
-  imageUrl String
-  content String
+  name      String
+  project   Project @relation(fields: [projectId], references: [id])
+  projectId Int
 }
+
+model Blog {
+  id          Int        @id @default(autoincrement())
+  slug        String     @unique
+  title       String
+  excerpt     String
+  readingTime String
+  published   Boolean    @default(false)
+  createdAt   DateTime   @default(now())
+  imageUrl    String
+  content     String
+
+  categories  Category[]
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String
+  blogs Blog[]
+}
+
 
 model Organization {
   id        String   @id @default(uuid())
