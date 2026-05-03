@@ -55,7 +55,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
     queryFn: getUser,
     staleTime: 1000 * 60 * 15, // 15 minutes
     retry: 1, // Only retry once on failure
-    refetchOnWindowFocus: "always",
   });
 
   const { mutate: loginMutate, isPending: isLoggingIn } = useMutation({

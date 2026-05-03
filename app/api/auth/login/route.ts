@@ -1,20 +1,32 @@
-import prisma from "@/lib/prisma";
+import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
+import { checkRateLimit } from '@/lib/rate-limit';
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 
 export async function POST( req: Request) {
-    try {
+    const { rateLimited } = await checkRateLimit(req)
 
+    if (rateLimited) {
+    return NextResponse.json(
+      { error: 'Rate limit exceeded' },
+      { status: 429 }
+    )
+  }
+
+    try {
+        // Ambil Request yang isinya email dan password
         const { email, password } = await req.json();
 
+        // Deklarasi Variabel User Berisi User Berdasarkan Email
         const user = await prisma.user.findUnique({
             where: {
                 email,
             },
         });
 
+        // Pengecekan Jika User dengan Email Yang di cari tidak ada
         if(!user){
             return NextResponse.json({
                 success: false,
@@ -24,8 +36,10 @@ export async function POST( req: Request) {
             })
         }
 
-        const isValid = password === user.password;
+        // Deklarasi Variabel Berisi Password Yang sudah Di compare agar tidak ter enskripsi
+        const isValid = await bcrypt.compare(password, user.password);
 
+        // Pengecekan jika Password Tidak Valid
         if(!isValid){
             return NextResponse.json({
                 success: false,
@@ -63,7 +77,6 @@ export async function POST( req: Request) {
 
         return response;
     } catch (error) {
-        console.log(error);
         return NextResponse.json({
             success: false,
             status: 500,
